@@ -4,7 +4,8 @@
   "description": "Meadowlark Travel",
   "main": "meadowlark.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "lint": "eslint meadowlark.js lib"
   },
   "author": "Andy",
   "license": "MIT",
@@ -15,5 +16,11 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:ilexwg/meadowlark-travel.git"
+  },
+  "devDependencies": {
+    "eslint": "^7.28.0",
+    "jest": "^27.0.4",
+    "portfinder": "^1.0.28",
+    "puppeteer": "^10.0.0"
   }
 }
