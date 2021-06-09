@@ -8,6 +8,8 @@ app.engine('handlebars', expressHandlebars({
 }));
 app.set('view engine', 'handlebars');
 
+app.use(express.static(__dirname + '/public'));
+
 const port = process.env.PORT || 3000;
 
 app.get('/', (req, res) => res.render('home'));
