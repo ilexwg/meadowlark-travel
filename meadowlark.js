@@ -2,15 +2,27 @@ const express = require('express');
 const expressHandlebars = require('express-handlebars');
 
 const handlers = require('./lib/handlers');
+const weatherMiddleware = require('./lib/middleware/weather');
 
 const app = express();
 
 app.engine('handlebars', expressHandlebars({
   defaultLayout: 'main',
+  helpers: {
+    section(name, options) {
+      if (!this._section) {
+        this._section = {};
+      }
+      this._section[name] = options.fn(this);
+      return null;
+    },
+  },
 }));
 app.set('view engine', 'handlebars');
 
 app.use(express.static(__dirname + '/public'));
+
+app.use(weatherMiddleware);
 
 const port = process.env.PORT || 3000;
 
