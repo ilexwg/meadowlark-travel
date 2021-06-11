@@ -11,10 +11,10 @@ app.engine('handlebars', expressHandlebars({
   defaultLayout: 'main',
   helpers: {
     section(name, options) {
-      if (!this._section) {
-        this._section = {};
+      if (!this._sections) {
+        this._sections = {};
       }
-      this._section[name] = options.fn(this);
+      this._sections[name] = options.fn(this);
       return null;
     },
   },
