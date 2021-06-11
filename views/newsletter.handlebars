@@ -38,9 +38,6 @@
       const container = document.getElementById('newsletterSignupFormContainer');
       fetch('/api/newsletter-signup', { method: 'post', body, headers })
         .then(res => {
-
-          debugger;
-
           if (res.status < 200 || res.status >= 300) {
             throw new Error(`Request failed with status ${res.status}`);
           }
